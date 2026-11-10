@@ -1,0 +1,29 @@
+name: Workflow Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select an env"
+        default: dev
+        required: false
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+      version:
+        description: "select version"
+        type: string
+        default: 1.0.0
+        required: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: environment
+        run: echo "Env: ${{ inputs.environment }}"
+      - name: version
+        run: echo "Version: ${{ inputs.version }}"
+  
