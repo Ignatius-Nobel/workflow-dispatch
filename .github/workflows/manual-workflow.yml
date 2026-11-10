@@ -23,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: environment
-        run: echo "Env: ${{ inputs.environment }}"
-      - name: version
-        run: echo "Version: ${{ inputs.version }}"
-  
+        run: |
+          echo "Env: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"  
